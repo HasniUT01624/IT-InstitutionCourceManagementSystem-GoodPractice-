@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using IT_Institution.IService;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IT_Institution.Controllers
@@ -7,5 +8,11 @@ namespace IT_Institution.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
+        private readonly IStudentService _studentService;
+
+        public StudentController (IStudentService studentService)
+        {
+            _studentService = studentService;
+        }
     }
 }

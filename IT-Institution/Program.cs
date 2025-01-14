@@ -1,5 +1,11 @@
 
-using IT_Institution.DBcontext;
+
+using IT_Institution.DBContext;
+using IT_Institution.IRepository;
+using IT_Institution.IService;
+using IT_Institution.Repository;
+using IT_Institution.Service;
+using Microsoft.EntityFrameworkCore;
 
 namespace IT_Institution
 {
@@ -16,7 +22,8 @@ namespace IT_Institution
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AppDBContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
-
+            builder.Services.AddScoped<IStudentRepository,StudentRepository>();
+            builder.Services.AddScoped<IStudentService,StudentService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -25,6 +32,8 @@ namespace IT_Institution
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors();
 
             app.UseHttpsRedirection();
 
