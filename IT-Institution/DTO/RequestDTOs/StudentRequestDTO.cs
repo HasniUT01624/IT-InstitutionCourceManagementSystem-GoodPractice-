@@ -16,6 +16,6 @@ namespace IT_Institution.DTO.RequestDTOs
        
         public string Password { get; set; } = string.Empty;
 
-        public AddressRequestDTO? Address { get; set; }
+        public AddressRequestDTO? Addresses { get; set; }
     }
 }

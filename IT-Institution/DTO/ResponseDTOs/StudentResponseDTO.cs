@@ -20,6 +20,6 @@ namespace IT_Institution.DTO.ResponseDTOs
         public string Password { get; set; } = string.Empty;
 
        
-        public AddressResponseDTO? Address { get; set; }
+        public AddressResponseDTO? Addresses { get; set; }
     }
 }
