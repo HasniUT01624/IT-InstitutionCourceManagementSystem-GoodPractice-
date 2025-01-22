@@ -10,9 +10,17 @@ namespace IT_Institution.Controllers
     {
         private readonly IStudentService _studentService;
 
-        public StudentController (IStudentService studentService)
+        public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
         }
+
+        [HttpGet("get-all-students")]
+        public async Task<IActionResult> GetAllStudents()
+        {
+            var students = await _studentService.GetAllStudents(_studentService.Get_logger());
+            return Ok(students);
+        }
     }
 }
+

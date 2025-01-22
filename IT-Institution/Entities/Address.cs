@@ -13,7 +13,7 @@ namespace IT_Institution.Entities
         public string City { get; set; } = string.Empty;
         [Required]
         public string Country { get; set; } = string.Empty;
-
+        [Required]
         public int StudentId { get; set; }
 
         //Reference
